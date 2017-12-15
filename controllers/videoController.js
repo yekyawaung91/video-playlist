@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 
 //connect to mongodb database
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://<user>:<pass>@ds157667.mlab.com:57667/videoplayer',{ useMongoClient: true });
+mongoose.connect('mongodb://yekyaw:yekyaw@ds157667.mlab.com:57667/videoplayer',{ useMongoClient: true });
 
 
 

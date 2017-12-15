@@ -26,3 +26,6 @@
 	
 ## Run Server
 	- node app
+
+## Call from browser
+	- localhost:3000
