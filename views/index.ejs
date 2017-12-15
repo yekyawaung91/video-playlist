@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Youtube Video</title>
+	<link rel="stylesheet" type="text/css" href="/assets/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/assets/style.css">
+
+</head>
+<body style="background-color:#e8e8e8">
+	<div class="container-fluid" >
+        <div class="container container-pad" id="property-listings">
+
+            <div class="row">
+              	<div class="col-md-12">
+                	<h1>Youtube Video </h1>
+                	<p>My favourite songs in youtube.
+                	<button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">Add Song</button>
+                	</p>
+                </div>
+            </div>
+            
+            <div class="row">
+            	<% for(var i=0; i < videos.length; i++){ %>
+                <div class="col-sm-6"> 
+                    <!-- Begin Listing: 609 W GRAVERS LN-->
+                    <div class="brdr bgc-fff pad-10 box-shad btm-mrg-20 property-listing">
+                        <div class="media">
+                            <a class="pull-left" href="#" target="_parent">
+                            <iframe class="video" src="<%= videos[i].url %>"></iframe>
+                            <div class="clearfix visible-sm"></div>
+                            <div class="media-body fnt-smaller">
+                                <a href="#" target="_parent" class="h3"><%= videos[i].song %></a>
+                                <small class="pull-right">
+                                	<button class="btn btn-danger btn-xs delete" value="<%= videos[i].song %>" type="button" >&times;</button>
+                                </small>
+                                <h4 class="media-heading">
+                                  <a href="#" target="_parent"> </a></h4>
+                                <ul class="list-inline mrg-0 btm-mrg-10 clr-535353">
+                                    <li><%= videos[i].artist %></li>
+                                </ul>
+                                <p class="hidden-xs">
+                                	<%= videos[i].description.substring(0,100)+'...' %>
+                                </p><span class="fnt-smaller fnt-lighter fnt-arial"><%= videos[i].date %></span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Listing-->
+                </div>
+                 <% }; %>
+            </div><!-- End row -->
+            <div class="text-muted text-center"><strong>Copyright &copy; <%= new Date().getFullYear() %></strong></div>
+        </div><!-- End container -->
+    </div>
+
+   
+    
+  
+
+
+    <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" >&times;</button>
+          <h4 class="modal-title">Upload Video</h4>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+                <div class="col-md-12">
+            	    <form >
+                    
+                    <div class='form-row'>
+                        <div class='form-group required'>
+                            <label class='control-label'>Song Name:</label>
+                            <input class='form-control' name="song" id="song" required="">
+                        </div>
+                    </div>
+
+                    <div class='form-row'>
+                        <div class='form-group card required'>
+                            <label class='control-label'>Song URL:(https://www.youtube.com/embed/B2yzG6Gj0A)</label>
+                            <input type='url' name="url" id="url" class='form-control' autocomplete='off' required="">
+                        </div>
+                    </div>
+
+                    <div class='form-row'>
+                        <div class='form-group card required'>
+                            <label class='control-label'>Artists</label>
+                            <input type='text' name="artist" id="artist" class='form-control' autocomplete='off' required="">
+                        </div>
+                    </div>
+
+                    <div class='form-row'>
+                        <div class='form-group cvc required'>
+                            <label class='control-label'>Description</label>
+                            <textarea name="description" id="description" class='form-control' rows="4"></textarea>
+                        </div>
+                    </div>
+        
+                    <div class='form-group'>
+                        <label class='control-label'></label>
+                        <button class='form-control btn btn-primary' type='submit'> Upload →</button>
+                    </div>
+                    </form>    
+                </div><!-- End row -->
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+    <script src="/assets/jquery-3.2.1.min.js"></script>
+	<script src="/assets/bootstrap.min.js"></script>
+  	<script src="/assets/video.js"></script>
+</body>
+</html>
